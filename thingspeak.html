@@ -1,0 +1,99 @@
+<html>
+<head>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>    
+<script>
+
+    //https://api.thingspeak.com/channels/<channel_id>/feeds.<format>
+    function read(){
+        var request = new XMLHttpRequest();
+        var urlHere = "https://api.thingspeak.com/channels/1421792/feeds.json";
+            //urlHere = urlHere + "api_key=DWTWKRWRYGQY0N0M&results=1";
+
+        request.open('GET', urlHere, true);
+
+        request.onload = function() {
+            if (request.status == 200) {
+                var data = JSON.parse(request.responseText);
+                console.log(data);
+                var tmp = data.feeds.length-1;
+                document.getElementById("cont").innerHTML = "Field 1: " + data.feeds[tmp].field1 + ",     Field 2: "+ data.feeds[tmp].field2;
+                document.getElementById("head1").innerHTML = "Channel name: " + data.channel.name +"   " +data.feeds[tmp].created_at;
+                var yField1 = new Array();
+                var yField2 = new Array();
+                var xArr = new Array();
+                for (var i = tmp-20; i <= tmp; i++) {
+                    yField1.push(data.feeds[i].field1);  
+                    yField2.push(data.feeds[i].field2);   
+                    xArr.push(i-(tmp-20));
+                }
+                console.log(xArr);
+                //add to chart
+                new Chart("myChart", {
+                    type: "line",
+                    data: {
+                        labels: xArr,
+                        datasets: [
+                        {
+                            fill: false,
+                            borderColor: "red",
+                            label: "Field 1",
+                            data: yField1
+                        },
+                        {
+                            fill: false,
+                            borderColor: "blue",
+                            label: "Field 2",
+                            data: yField2
+                        },    
+                        ]
+                    },
+                    options: {
+                        plugins:{
+                            legend: {
+                                display: true,
+                            }
+                        }
+                    }
+                });
+            } else {
+            // We reached our target server, but it returned an error
+            }
+        };
+        request.send();
+    }
+    
+    function send(dat1, dat2)
+    {
+        var request = new XMLHttpRequest();
+        var urlHere = "https://api.thingspeak.com/update?";
+        urlHere = urlHere + "api_key=SSDLCZWNRHIVMJUF&field1=";
+        urlHere = urlHere + dat1 + "&field2=" + dat2;
+        request.open('GET', urlHere, true);
+        request.send();
+    }
+
+    read();
+</script>
+</head>
+<body>
+    <h2 id="head1" align="center"> </h2>
+    <p> Reading data: </p>
+    <p id="cont"> </p>
+    
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+    <br> <br>
+    <form name="form1">
+        <label for="mySlider">Led brightness</label>
+        <input type="range" min="1" max="25" value="10" class="slider" name="mySlider">
+        <br> <br>
+        <label for="dat1">Field 1</label>
+        <input type="text" name="dat1" value="0"> <br> <br>
+        <label for="dat2">Field 2</label>
+        <input type="text" name="dat2" value="0"> <br> <br>
+        <input type = "button" value = "Write" onclick = "send(form1.dat1.value,form1.mySlider.value)"> &nbsp; &nbsp;
+        <input type = "button" value = "Read" onclick = "read()">
+    </form>
+</body>
+</html>
