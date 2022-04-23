@@ -9,34 +9,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script> 
 
 <script>
-  function nhapHang(dat,b)
-    {
-        var request = new XMLHttpRequest();
-        var urlHere = "https://api.thingspeak.com/update?";
-        
-        urlHere = urlHere + "api_key=SSDLCZWNRHIVMJUF&field4="+ dat;
-        request.open('GET', urlHere, true);
-        request.send();
-        setTimeout(function(){  
-          b();
-        }, 5000); 
-    }
-  function xuatHang(dat,b)
-    {
-        var request = new XMLHttpRequest();
-        var urlHere = "https://api.thingspeak.com/update?";
-        urlHere = urlHere + "api_key=SSDLCZWNRHIVMJUF&field5="+ dat;
-        
-        if (parseInt(dat)<=tonKho) {
-          request.open('GET', urlHere, true);
-          request.send();          
-        }else{
-          alert("Hàng không đủ để xuất!");
-        }
-        setTimeout(function(){
-          b();
-        },5000);
-    }
   function thongKe()
     {
         var request = new XMLHttpRequest();
@@ -73,6 +45,81 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 tonKho = tongNhap - tongXuat;
                 document.getElementById("thongke").innerHTML = "Tổng số sản phẩm đang trong kho:"+tonKho;
                 //Ve bieu đồ nhập xuất
+                var yNhap = new Array();
+                var yXuat = new Array();
+                var xNhap = new Array();
+                var xXuat = new Array();
+                for(var i=0;i<length;i++){
+                  if (data.feeds[i].field4 != null){
+                    yNhap.push(data.feeds[i].field4);
+                    xNhap.push(data.feeds[i].created_at);
+                  }
+                  if (data.feeds[i].field5 != null){
+                    yXuat.push(data.feeds[i].field5);
+                    xXuat.push(data.feeds[i].created_at);
+                  }
+                }
+                //bieu đồ
+                new Chart("chartNhap", {
+                    type: "bar",
+                    data: {
+                        labels: xNhap,
+                        datasets: [
+                        {
+                            fill: false,
+                            backgroundColor: "red",
+                            label: "Quá trình nhập hàng",
+                            data: yNhap
+                        }, 
+                        ]
+                    },
+                    options: {
+                        plugins:{
+                            legend: {
+                              display: true,
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                              display: true,
+                              ticks: {
+                                beginAtZero: true,
+                                //max: (yNhap.max)
+                              }
+                            }]
+                        }
+                    }
+                });
+                new Chart("chartXuat", {
+                    type: "bar",
+                    data: {
+                        labels: xXuat,
+                        datasets: [
+                        {
+                            fill: false,
+                            backgroundColor: "blue",
+                            label: "Quá trình xuất hàng",
+                            data: yXuat
+                        }, 
+                        ]
+                    },
+                    options: {
+                        plugins:{
+                            legend: {
+                                display: true,
+                            }
+                        },
+                        scales: {
+                            yAxes: [{
+                                display: true,
+                                ticks: {
+                                    beginAtZero: true,
+                                    //max: (yXuat.max)
+                                }
+                            }]
+                        }
+                    }
+                });
 
             } else {
             // We reached our target server, but it returned an error
@@ -134,29 +181,18 @@ body {
 <div class="sidenav">
   <a href="https://vankhanh-ctu.github.io/website/">Trang chủ</a>
   <a href="https://vankhanh-ctu.github.io/website/thingspeak-sample.html">Nhập xuất hàng</a>
-  <a href="#">Thống kê</a>
+  <a href="https://vankhanh-ctu.github.io/website/thingspeak-thongke.html">Thống kê</a>
 </div>
 
 <div class="content">
-  <h2>Chức năng nhập và xuất hàng</h2>
-  <p>Tự động thống kê sau 5 giây để kiểm tra xem việc nhập xuất thành công không</p>
-  <!--form chính-->
-  <!--Ứng dụng này sử dụng Field4 và 5 để lưu trữ thông tin-->
-  <form name="form1">
-        <br> <br>
-        <label for="Nhap">Nhập hàng</label>
-        <input type="text" id="nhap" value="0"> <br> <br>
-        <label for="Xuat">Xuất hàng</label>
-        <input type="text" id="xuat" value="0"> <br> <br>
-        <input type = "button" value = "Nhập" onclick = "nhapHang(form1.nhap.value,thongKe)"> &nbsp; &nbsp;
-        <input type = "button" value = "Xuất" onclick = "xuatHang(form1.xuat.value,thongKe)">
-  </form>
-  <br> <br>
-  <p>Số sản phẩm hiện tại trong kho</p>
+  <p>Quá trình nhập hàng</p>
   <form name="form2">
         <input type = "button" value = "Kiểm tra" onclick = "thongKe()">
   </form>
   <p id="thongke"> </p>
+  <canvas id="chartNhap" style="width:100%;max-width:700px"></canvas>
+  <p>Quá trình xuất hàng</p>
+  <canvas id="chartXuat" style="width:100%;max-width:700px"></canvas>
 </div>
 
 </body>
