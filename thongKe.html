@@ -51,11 +51,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 var xNhap = new Array();
                 var xXuat = new Array();
                 for(var i=0;i<length;i++){
-                  if (data.feeds[i].field4 != null){
+                  if (data.feeds[i].field1 != null){
                     yNhap.push(data.feeds[i].field1);
                     xNhap.push(data.feeds[i].created_at);
                   }
-                  if (data.feeds[i].field5 != null){
+                  if (data.feeds[i].field2 != null){
                     yXuat.push(data.feeds[i].field2);
                     xXuat.push(data.feeds[i].created_at);
                   }
