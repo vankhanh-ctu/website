@@ -25,11 +25,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 dataNhap = new Array();
                 dataXuat = new Array();
                 for(i=0;i<length;i++){
-                  if (data.feeds[i].field4 != null){
-                    dataNhap.push(data.feeds[i].field4);
+                  if (data.feeds[i].field1 != null){
+                    dataNhap.push(data.feeds[i].field1);
                   }
-                  if (data.feeds[i].field5 != null){
-                    dataXuat.push(data.feeds[i].field5);
+                  if (data.feeds[i].field2 != null){
+                    dataXuat.push(data.feeds[i].field2);
                   }
                 }
                 // hiển thị số lượng tồn kho
@@ -52,11 +52,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 var xXuat = new Array();
                 for(var i=0;i<length;i++){
                   if (data.feeds[i].field4 != null){
-                    yNhap.push(data.feeds[i].field4);
+                    yNhap.push(data.feeds[i].field1);
                     xNhap.push(data.feeds[i].created_at);
                   }
                   if (data.feeds[i].field5 != null){
-                    yXuat.push(data.feeds[i].field5);
+                    yXuat.push(data.feeds[i].field2);
                     xXuat.push(data.feeds[i].created_at);
                   }
                 }
