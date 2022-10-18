@@ -1,0 +1,50 @@
+.box{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+	margin-top: 1rem;
+}
+.left{
+	text-align: center;
+	width: 8rem;
+	height: 13rem;
+	background-color: lightblue;
+}
+.left .img{
+	padding-top: 1rem;
+	width: 6rem;
+	height: 6rem;
+}
+.middle{
+	text-align: center;
+	width: 60%;
+}
+.right{
+	text-align: center;
+	width: 20%;
+}
+.middle .h2{
+	text-align: left;
+	color: #017bc1;
+	padding-left: 2rem;
+}
+
+.middle .aside {
+  width: 30%;
+  padding-left: 15px;
+  margin-left: 15px;
+  float: right;
+  font-style: italic;
+  background-color: lightgray;
+  border-radius: 50%;
+}
+
+#launch-dialog {
+  background: tomato;
+  border-radius: 4px;
+  color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  position: static;
+}

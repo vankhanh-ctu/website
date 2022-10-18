@@ -1,0 +1,68 @@
+body{
+	 font: 100%/125% Verdana, Arial, Helvetica, sans-serif;
+	 background: #FFF;
+	 margin: 0px; /*remove all the margins, add them where you want later*/
+	 padding: 0px; /*remove all the padding, add it where you want later*/
+}
+
+#wrapper {
+	 margin: 10px;
+	 padding: 0px;
+	 width: 100%;
+}
+#main-body {
+	 float: left;
+	 width: 75%;
+}
+#content {
+	 float: right;
+	 width: 65%;
+}
+#left {
+	 float: left;
+	 width: 35%;
+}
+#right {
+	 float: right;
+	 width: 25%;
+}
+#footer {
+	 clear: both;
+	 text-align: center;
+} 
+#header {
+	 background: url(header.jpg) no-repeat left top;
+	 background-color: darkgrey;
+}
+#header h1 {
+	 font: 300% Helvetica;
+	 color: blue;
+	 text-align: right;
+	 padding-right: 1em;
+	 padding-top: 15px;
+	 padding-bottom: 15px;
+}
+#right img, #content img {
+	 border-right: 2px solid #CCC; /*creates a drop shadow effect*/
+	 border-bottom: 3px solid #CCC; /*creates a drop shadow effect*/
+	 margin-left: 3px;
+	 align-items: center;
+}
+
+#left p{
+	padding-right: 5px;
+	color: blue;
+	font-style: italic;
+}
+
+#left p.button{
+	background-color: blue;
+	color: white;
+	font-size: 16pt;
+	width: 60%;
+	padding:10;
+	border-radius: 8px; 
+	text-align: center;
+	cursor: pointer;
+	margin-left: 10%;
+}

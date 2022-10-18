@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<h1>Vui lòng chọn thành viên để xem thông tin!</h1>
+		<select id="drop1" onclick="get_selection()">
+			<option>Nguyễn Văn A</option>
+			<option>Nguyễn Văn B</option>
+			<option>Nguyễn Thị C</option>
+			<option>Nguyễn Thị D</option>
+		</select>
+		<p id="p1"></p>
+		<img id="img1" src="" width="150px" height="150px">
+	</form>
+	<script type="text/javascript">
+		function get_selection(){
+			i1 = document.getElementById("p1");
+			console.log(i1);
+			l1 = document.getElementById("drop1").options;
+			idx = l1.selectedIndex;
+			console.log(idx);
+			
+			if (idx == 0){
+				document.getElementById("img1").src="logo.png"
+				i1.innerHTML = "Bạn vừa chọn trưởng nhóm: "+ l1[0].innerHTML;
+			}else if (idx == 1){
+				document.getElementById("img1").src="jslogo.png"
+			}else if (idx == 2){
+				document.getElementById("img1").src="jslogo.png"
+			}else{
+				document.getElementById("img1").src="jslogo.png"
+			}
+
+		}
+	</script>
+</body>
+</html>

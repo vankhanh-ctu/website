@@ -1,0 +1,1 @@
+https://onsen.io/v2/api/js/ons-splitter-content.html

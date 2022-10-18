@@ -1,0 +1,124 @@
+<html>
+<head>
+	<title>DOM JS</title>
+	<link rel="stylesheet" href="two_cols.css">
+</head>
+<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="box">
+				<a href="https://www.ctu.edu.vn/">
+					<img src="logo.png" alt="Logo" width="100" height="100">
+				</a>
+			</div>
+			
+			<p>Công nghệ IoTs và Ứng dụng</p>
+		</div>
+		<div id="left">
+			<ul>
+				<li><a href="two_cols_site.html">Trang chủ</a></li>
+				<li><a href="#">Chuẩn đầu ra</a></li>
+				<li><a href="#">PPGD và NVSV</a></li>
+				<li><a href="#">Đánh giá</a></li>
+				<li><a href="#">TLTK</a></li>
+			</ul>	
+			<h3>Liên kết</h3>
+			<ul style="background-color: lightblue">
+				<li><a href="#">CTU</a></li>
+				<li><a href="#">Khoa CN</a></li>
+				<li><a href="https://w3schools.com/css">W3School</a></li>
+				<li><a class="active" href="dom-js.html">DOM JS</a></li>
+			</ul>
+		</div>
+		<div id="right">
+			<p>Chuỗi nhập:</p>
+			<p id="chuoi_nhap"></p>
+			<div id="grid-container">
+				<div onclick="phim1()">1</div>
+				<div> 2 </div>
+				<div> 3 </div>
+				<div> 4 </div>
+				<div> 5 </div>
+				<div> 6 </div>
+				<div> 7 </div>
+				<div> 8 </div>
+				<div> 9 </div>
+				<div> 0 </div>
+			</div>
+			<div style="justify-content: center;
+			            display: grid;
+			            grid-template-columns: auto;">
+			    <!-- Số hạng 1 -->
+			    <label>Số hạng 1:
+					<input type="input" 
+				                 id="inp1" 
+				                 onchange="update_value()" 
+				                 placeholder="0">	
+				</label>
+				<!-- Số hạng 2 -->
+				<label>Số hạng 2:
+					<input type="input" 
+				                 id="inp2" 
+				                 onchange="update_value()"
+				                 placeholder="0">
+				</label>
+				<!-- Hiển thị kết quả -->
+				<label>Tổng là: 0</label>
+			
+			<form style="width: 250px;
+			          margin-top: 30px;
+			          background-color: lightgrey;
+			          padding:10px 10px 0 10px;
+			          border-radius: 8px;">
+
+			  <label>Danh sách sinh viên:</label>
+			  <br>
+			  <select id="drop1" 
+			          onclick="get_selection()"
+			          style="width: 150px;
+			          margin-top: 20px;
+			          height: 30px;
+			          border-radius: 10px;">
+			    <option>Nguyễn Văn A</option>
+			    <option>Trần Văn B</option>
+			    <option>Nguyễn Thị C</option>
+			    <option>Hồ thị D</option>
+			  </select>
+			  <p id="p1" style="color: blue;"></p>
+			</form>
+
+			</div>
+			<div>
+			
+			<button id="button1" onclick="myFunction()">
+			    Click me
+			</button>
+
+			<script type="text/javascript">
+				function myFunction(){
+					alert("Xin chào các bạn!");
+				}
+			</script>
+			</div>
+			<script type="text/javascript">
+				function get_selection() {
+				  x = document.getElementById("drop1").options;
+				  console.log(x);
+				  document.getElementById("p1").innerHTML = "Xin chào " + 
+				  	x[x.selectedIndex].innerHTML + 
+				  	", Chúc một ngày tốt lành!.";
+				}
+				function phim1(){
+					cn = document.getElementById("chuoi_nhap");
+					cn.innerHTML += 1;
+				}
+			</script>
+		
+
+
+		</div>
+		<div id="footer">
+			<p>KC326 Course &copy Nguyen Van Khanh - PLC&IIoT Công nghiệp</p>
+		</div>
+	</div>
+</body>
