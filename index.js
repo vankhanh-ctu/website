@@ -25,6 +25,7 @@ Sends();
 read.addEventListener('click',(e) =>{ 
 Getval();
 });
+load.addEventListener('load',(e) =>{Getval();});
 
 function Sends(){
     Number = parseFloat(document.getElementById('Number').value);
