@@ -22,6 +22,9 @@ const database = getDatabase(app);
 send.addEventListener('click',(e) =>{ 
 Sends();
 });
+read.addEventListener('click',(e) =>{ 
+Getval();
+});
 
 function Sends(){
     Number = parseFloat(document.getElementById('Number').value);
