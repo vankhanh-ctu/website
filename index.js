@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
-//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
-//import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
-import { initializeApp, getDatabase, ref, set, child, get } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -37,7 +36,7 @@ function Getval(){
     get(child(dbRef, `Number` + '/Value')).then((snapshot) => {
       if (snapshot.exists()) {
         console.log(snapshot.val());
-        document.getElementById('Texter').innerHTML = snapshot.val();
+        document.getElementById('Texter').innerHTML = "Number/Value="+snapshot.val();
       } else {
         console.log("No data available");
       }
