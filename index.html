@@ -1,192 +1,20 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Two-Column</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-	
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'><link rel="stylesheet" href="src/style.css">
-	<link rel="stylesheet" href="two_cols.css">
+<style>
+</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="index.js"></script>
+    <title>JS - firebase tutorial</title>
 </head>
 <body>
-	<div id="wrapper">
-		<div id="header">
-			<div class="box">
-				<a href="https://www.ctu.edu.vn/">
-					<img src="logo.png" alt="Logo" width="100" height="100">
-				</a>
-			</div>
-			
-			<p>Công nghệ IoTs và Ứng dụng</p>
-		</div>
-
-		<!-- partial:index.partial.html -->
-		<main class="main-content">
-		  <section class="slideshow">
-		    <div class="slideshow-inner">
-		      <div class="slides">
-		        <div class="slide is-active ">
-		          <div class="slide-content">
-		            <div class="caption">
-		              <div class="title">Slide title 1</div>
-		              <div class="text">
-		                <p>Slide description 1</p>
-		              </div> 
-		              <a href="#" class="btn">
-		                <span class="btn-inner">Learn More</span>
-		              </a>
-		            </div>
-		          </div>
-		          <div class="image-container"> 
-		            <img src="./imgs/img_rr_01.jpg" alt="" class="image" />
-		          </div>
-		        </div>
-		        <div class="slide">
-		          <div class="slide-content">
-		            <div class="caption">
-		              <div class="title">Slide title 2</div>
-		              <div class="text">
-		                <p>Slide description 2</p>
-		              </div> 
-		              <a href="#" class="btn">
-		                <span class="btn-inner">Learn More</span>
-		              </a>
-		            </div>
-		          </div>
-		          <div class="image-container">
-		            <img src="./imgs/img_rr_02.jpg" alt="" class="image" />
-		          </div>
-		        </div>
-		        <div class="slide">
-		          <div class="slide-content">
-		            <div class="caption">
-		              <div class="title">Slide title 3</div>
-		              <div class="text">
-		                <p>Slide description 3</p>
-		              </div> 
-		              <a href="#" class="btn">
-		                <span class="btn-inner">Learn More</span>
-		              </a>
-		            </div>
-		          </div>
-		          <div class="image-container">
-		            <img src="./imgs/img_rr_03.jpg" alt="" class="image" />
-		          </div>
-		        </div>
-		        <div class="slide">
-		          <div class="slide-content">
-		            <div class="caption">
-		              <div class="title">Slide title 4</div>
-		              <div class="text">
-		                <p>Slide description 4</p>
-		              </div> 
-		              <a href="#" class="btn">
-		                <span class="btn-inner">Learn More</span>
-		              </a>
-		            </div>
-		          </div>
-		          <div class="image-container"> 
-		            <img src="./imgs/img_rr_04.jpg" alt="" class="image" />
-		          </div>
-		        </div>
-		      </div>
-		      <div class="pagination">
-		        <div class="item is-active"> 
-		          <span class="icon">1</span>
-		        </div>
-		        <div class="item">
-		          <span class="icon">2</span>
-		        </div>
-		        <div class="item">
-		          <span class="icon">3</span>
-		        </div>
-		        <div class="item">
-		          <span class="icon">4</span>
-		        </div>
-		      </div>
-		      <div class="arrows">
-		        <div class="arrow prev">
-		          <span class="svg svg-arrow-left">
-		            <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
-		            <span class="alt sr-only"></span>
-		          </span>
-		        </div>
-		        <div class="arrow next">
-		          <span class="svg svg-arrow-right">
-		            <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
-		            <span class="alt sr-only"></span>
-		          </span>
-		        </div>
-		      </div>
-		    </div> 
-		  </section>
-		</main>
-		<!-- partial -->
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="src/script.js"></script>
-
-		<div id="left">
-			<ul>
-				<li><a href="#">Trang chủ</a></li>
-				<li><a href="#">Chuẩn đầu ra</a></li>
-				<li><a href="#">PPGD và NVSV</a></li>
-				<li><a href="#">Đánh giá</a></li>
-				<li><a href="#">TLTK</a></li>
-			</ul>	
-			<h3>Liên kết</h3>
-			<ul style="background-color: lightblue">
-				<li><a href="#">CTU</a></li>
-				<li><a href="#">Khoa CN</a></li>
-				<li><a href="https://w3schools.com/css">W3School</a></li>
-				<li><a href="dom-js.html">DOM JS</a></li>
-			</ul>
-		</div>
-		<div id="right">
-			<img src="img1.png" alt="iot" width="400" height="300">
-			<p>Trong xu thế bắt kịp kiến thức và kỹ năng chuyên môn kỹ sư tự động hóa, cơ điện tử. IoT là một lĩnh vực phù hợp xu thế ứng dụng Internet để kết nối các thiết bị phần cứng theo nguyên lý không dây và tốc độ cao. Học phần này được xây dựng giúp sinh viên ngành Tự Động Hóa và Cơ Điện Tử trải nghiệm nguyên lý, thiết kế, kết nối, lập trình, thu thập dữ liệu thông qua giao diện web được lập trình theo khả năng của từng sinh viên qua các ứng dụng cơ bản được giới thiệu và hướng dẫn trên lớp của giảng viên.</p>
-
-			<!-- Mục tiêu -->
-			<table>
-			  <tr>
-			    <th> Mục tiêu</th>
-			    <th>Nội dung mục tiêu</th>
-			    <th>CĐR CTĐT</th>
-			  </tr>
-			  <tr>
-			    <td>4.1</td>
-			    <td>Nắm vững nguyên lý cơ bản về IoT, nguyên lý thiết kế, kết nối và truyền dữ liệu trong các ứng dụng IoT.</td>
-			    <td>2.1.3a</td>
-			  </tr>
-			  <tr>
-			    <td>4.2</td>
-			    <td>Thiết kế tốt bộ điều khiển IoT, lập trình nhúng và lập trình Web cơ bản ứng dụng IoT.</td>
-			    <td>2.2.1a<br>2.2.1b</td>
-			  </tr>
-			  <tr>
-			    <td>4.3</td>
-			    <td>Làm việc nhóm để giải quyết vấn đề.</td>
-			    <td>2.2.2a</td>
-			  </tr>
-			</table>
-		</div>
-		<div id="footer">
-			<p>KC326 Course &copy Nguyen Van Khanh - PLC&IIoT Công nghiệp</p>
-		</div>
-		<script>
-			var myIndex = 0;
-			carousel();
-
-			function carousel() {
-			  var i;
-			  var x = document.getElementsByClassName("mySlides");
-			  for (i = 0; i < x.length; i++) {
-			    x[i].style.display = "none";  
-			  }
-			  myIndex++;
-			  if (myIndex > x.length) {myIndex = 1}    
-			  x[myIndex-1].style.display = "block";  
-			  setTimeout(carousel, 9000);    
-			}
-		</script>
-	</div>
-</body>
+    <p id="Texter" class="counter">
+        <!--  -->
+    </p>
+        <input class="input" type="number" id="Number" placeholder="Type number">
+        <input class="button" type="button" value="Send" id="send">
+    </body>
+</html> 
