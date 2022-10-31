@@ -39,7 +39,7 @@ function Getval(){
     get(child(dbRef, `Number` + '/Value')).then((snapshot) => {
       if (snapshot.exists()) {
         console.log(snapshot.val());
-        document.getElementById('Texter').innerHTML = "Number/Value="+snapshot.val();
+        document.getElementById('val').innerHTML = "Number/Value="+snapshot.val();
       } else {
         console.log("No data available");
       }
